@@ -9,7 +9,7 @@ COPY package*.json ./
 
 # Install app dependencies
 
-RUN npm install -g npm
+RUN npm install 
 RUN npm install -g nodemon
 
 # Copy the rest of the frontend code
