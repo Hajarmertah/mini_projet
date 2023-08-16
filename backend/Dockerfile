@@ -1,16 +1,22 @@
-FROM node:16.14.0
+# Use an official Node.js runtime as the base image
+FROM node:latest
 
-# Create app directory
+# Set the working directory
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-RUN npm install
+# Install app dependencies
 
+RUN npm install -g npm
+RUN npm install -g nodemon
 
-# Bundle app source
+# Copy the rest of the frontend code
 COPY . .
 
-EXPOSE 5000
-CMD [ "npm", "start" ]
+# Expose the port the frontend runs on
+EXPOSE 3000
+
+# Start the frontend
+CMD ["npm", "start"]

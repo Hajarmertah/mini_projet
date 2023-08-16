@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as the base image
-FROM node:16.14.à
+FROM node:latest
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm install
+RUN npm install -g npm
 
 # Copy the rest of the frontend code
 COPY . .
