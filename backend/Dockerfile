@@ -2,18 +2,17 @@
 FROM node:14
 
 # Set the working directory
-WORKDIR /usr/src/app
+# WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+COPY . /app
+
+WORKDIR /app
 
 # Install app dependencies
 
 RUN npm install 
-RUN npm install -g nodemon
-
-# Copy the rest of the frontend code
-COPY . .
+# RUN npm install -g nodemon
 
 # Expose the port the frontend runs on
 EXPOSE 3000
